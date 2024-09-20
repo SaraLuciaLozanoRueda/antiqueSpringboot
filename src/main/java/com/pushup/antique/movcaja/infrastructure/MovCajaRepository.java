@@ -1,5 +1,9 @@
 package com.pushup.antique.movcaja.infrastructure;
 
-public interface MovCajaRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.pushup.antique.movcaja.domain.model.MovCaja;
+
+public interface MovCajaRepository extends CrudRepository<MovCaja,Long>{
 
 }

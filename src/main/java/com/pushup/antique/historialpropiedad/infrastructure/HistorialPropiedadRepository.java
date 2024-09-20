@@ -1,5 +1,9 @@
 package com.pushup.antique.historialpropiedad.infrastructure;
 
-public interface HistorialPropiedadRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.pushup.antique.historialpropiedad.domain.model.HistorialPropiedad;
+
+public interface HistorialPropiedadRepository extends CrudRepository<HistorialPropiedad,Long>{
 
 }

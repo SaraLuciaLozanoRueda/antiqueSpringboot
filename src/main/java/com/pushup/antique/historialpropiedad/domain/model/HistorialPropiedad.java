@@ -38,13 +38,26 @@ public class HistorialPropiedad {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Persona getPersona() {
         return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     public Antiguedad getAntiguedad() {
         return antiguedad;
     }
 
+    public void setAntiguedad(Antiguedad antiguedad) {
+        this.antiguedad = antiguedad;
+    }
+
+    
     
 }

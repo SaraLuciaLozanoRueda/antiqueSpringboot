@@ -1,5 +1,9 @@
 package com.pushup.antique.contactopersona.infrastructure;
 
-public interface ContactoPersonaRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.pushup.antique.contactopersona.domain.model.ContactoPersona;
+
+public interface ContactoPersonaRepository extends CrudRepository<ContactoPersona,Long>{
 
 }

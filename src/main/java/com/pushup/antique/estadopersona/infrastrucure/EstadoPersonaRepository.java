@@ -1,5 +1,9 @@
 package com.pushup.antique.estadopersona.infrastrucure;
 
-public interface EstadoPersonaRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.pushup.antique.estadopersona.domain.model.EstadoPersona;
+
+public interface EstadoPersonaRepository extends CrudRepository<EstadoPersona,Long> {
 
 }

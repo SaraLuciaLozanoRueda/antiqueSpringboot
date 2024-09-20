@@ -1,5 +1,9 @@
 package com.pushup.antique.rankingantiguedad.infrastructure;
 
-public interface RankingAntiguedadRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.pushup.antique.rankingantiguedad.domain.model.RankingAntiguedad;
+
+public interface RankingAntiguedadRepository extends CrudRepository<RankingAntiguedad,Long>{
 
 }
