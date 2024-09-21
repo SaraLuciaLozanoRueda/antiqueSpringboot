@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 
 @Entity
@@ -19,10 +20,12 @@ public class MovCaja {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Indique el id de la Caja!")
     @ManyToOne
     @JoinColumn(name = "estacionPago_id")
     private  EstacionPago estacionPago;
 
+    @NotNull(message = "Indique el id del tipo de movimiento de caja!")
     @ManyToOne
     @JoinColumn(name = "tipMovCaja_id")
     private TipMovCaja tipMovCaja;

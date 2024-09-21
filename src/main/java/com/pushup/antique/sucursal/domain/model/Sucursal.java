@@ -11,6 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "sucursales")
@@ -19,16 +21,20 @@ public class Sucursal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Agregue el nombre de la sucursal!")
     private String nombre;
 
+    @NotNull(message = "Ingrese el Id de la ciudad!")
     @ManyToOne
     @JoinColumn(name = "ciudad_id")
     private Ciudad ciudad;
 
+    @NotNull(message = "Indique el Id de la persona!")
     @ManyToOne
     @JoinColumn(name = "persona_id")
     private Persona persona;
 
+    @NotNull(message = "No olvide el Id de la antiguedad!")
     @ManyToOne
     @JoinColumn(name = "antiguedad_id")
     private Antiguedad antiguedad;

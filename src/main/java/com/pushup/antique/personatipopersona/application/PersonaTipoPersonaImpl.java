@@ -26,7 +26,6 @@ public class PersonaTipoPersonaImpl implements PersonaTipoPersonaService {
         Optional<PersonaTipoPersona> PTPOpt = repository.findById(id);
         if (PTPOpt.isPresent()) {
             PersonaTipoPersona PTPItem = PTPOpt.orElseThrow();
-            PTPItem.setPersona(tipoPersona.getPersona());
             PTPItem.setTipoPersona(tipoPersona.getTipoPersona());
             return Optional.of(repository.save(PTPItem));
         }

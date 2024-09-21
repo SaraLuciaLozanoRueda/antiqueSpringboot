@@ -9,6 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "regiones")
@@ -17,8 +19,10 @@ public class Region {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Ingrese el nombre de la region!")
     private String nombre;
 
+    @NotNull(message = "Indique el Id del pais!")
     @ManyToOne
     @JoinColumn(name = "pais_id")
     private Pais pais;

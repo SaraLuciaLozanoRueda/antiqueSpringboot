@@ -27,7 +27,6 @@ public class TransaccionMedioPagoImpl implements TransaccionMedioPagoService{
         if (TMPOpt.isPresent()) {
             TransaccionMedioPago TMPItem = TMPOpt.orElseThrow();
             TMPItem.setMedioPago(TMP.getMedioPago());
-            TMPItem.setTransaccion(TMP.getTransaccion());
             return Optional.of(repository.save(TMPItem));
         }
         return TMPOpt;

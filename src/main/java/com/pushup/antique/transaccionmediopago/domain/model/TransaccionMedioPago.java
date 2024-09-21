@@ -1,7 +1,6 @@
 package com.pushup.antique.transaccionmediopago.domain.model;
 
 import com.pushup.antique.mediopago.domain.model.MedioPago;
-import com.pushup.antique.transaccion.domain.model.Transaccion;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 
 @Entity
@@ -19,20 +19,17 @@ public class TransaccionMedioPago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Ingrese el Id del medio de pago!")
     @ManyToOne
     @JoinColumn(name = "medioPago_id")
     private MedioPago medioPago;
 
-    @ManyToOne
-    @JoinColumn(name = "transaccion_id")
-    private Transaccion transaccion;
-
     public TransaccionMedioPago() {
     }
 
-    public TransaccionMedioPago(MedioPago medioPago, Transaccion transaccion) {
+
+    public TransaccionMedioPago(MedioPago medioPago) {
         this.medioPago = medioPago;
-        this.transaccion = transaccion;
     }
 
     public Long getId() {
@@ -51,13 +48,5 @@ public class TransaccionMedioPago {
         this.medioPago = medioPago;
     }
 
-    public Transaccion getTransaccion() {
-        return transaccion;
-    }
 
-    public void setTransaccion(Transaccion transaccion) {
-        this.transaccion = transaccion;
-    }
-
-    
 }

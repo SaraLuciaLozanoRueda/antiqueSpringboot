@@ -13,6 +13,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "personas")
@@ -21,22 +23,33 @@ public class Persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Ingrese el nombre de la persona!")
+    private String nombre;
+
+    @NotNull(message = "Ingrese la edad!")
+    private String edad;
+
+    @NotNull(message = "Ingrese el id del estado de persona!")
     @ManyToOne
     @JoinColumn(name = "estadoPersona_id")
     private EstadoPersona estadoPersona;
 
+    @NotNull(message = "Ingrese el id de la direccion de la persona!")
     @ManyToOne
     @JoinColumn(name = "dIreccionPersona_id")
     private DIreccionPersona dIreccionPersona;
 
+    @NotNull(message = "Indique el Id del genero!")
     @ManyToOne
     @JoinColumn(name = "genero_id")
     private Genero genero;
 
+    @NotNull(message = "Agregue el Id de la persona Tipo persona")
     @ManyToOne
     @JoinColumn(name = "personaTipoPersona_id")
     private PersonaTipoPersona personaTipoPersona;
 
+    @NotNull(message = "No olvide ingresae el Id del contacto de la persona!")
     @ManyToOne
     @JoinColumn(name = "contactoPersona_id")
     private ContactoPersona contactoPersona;
@@ -44,8 +57,10 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(EstadoPersona estadoPersona, DIreccionPersona dIreccionPersona, Genero genero,
-            PersonaTipoPersona personaTipoPersona, ContactoPersona contactoPersona) {
+    public Persona(String nombre, String edad, EstadoPersona estadoPersona, DIreccionPersona dIreccionPersona,
+            Genero genero, PersonaTipoPersona personaTipoPersona, ContactoPersona contactoPersona) {
+        this.nombre = nombre;
+        this.edad = edad;
         this.estadoPersona = estadoPersona;
         this.dIreccionPersona = dIreccionPersona;
         this.genero = genero;
@@ -59,6 +74,22 @@ public class Persona {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
     }
 
     public EstadoPersona getEstadoPersona() {

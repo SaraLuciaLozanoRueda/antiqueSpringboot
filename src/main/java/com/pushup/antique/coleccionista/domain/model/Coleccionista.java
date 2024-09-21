@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "coleccionistas")
@@ -17,10 +18,12 @@ public class Coleccionista {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Ingresa el Id de la persona!")
     @ManyToOne
     @JoinColumn(name = "persona_id")
     private Persona persona;
 
+    @NotNull(message = "Especifique la cantidad de colleciones!")
     private int numeroColecciones;
 
     public Coleccionista() {

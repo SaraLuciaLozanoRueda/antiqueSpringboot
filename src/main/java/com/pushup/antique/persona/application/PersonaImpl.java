@@ -31,6 +31,8 @@ public class PersonaImpl implements PersonaService{
             personaItem.setGenero(persona.getGenero());
             personaItem.setPersonaTipoPersona(persona.getPersonaTipoPersona());
             personaItem.setContactoPersona(persona.getContactoPersona());
+            personaItem.setEdad(persona.getEdad());
+            personaItem.setNombre(persona.getNombre());
             return Optional.of(repository.save(personaItem));
         }
         return personaOpt;

@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "transacciones")
@@ -22,26 +23,32 @@ public class Transaccion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Ingrese el id de la persona!")
     @ManyToOne
     @JoinColumn(name = "persona_id")
     private Persona persona;
 
+    @NotNull(message = "Indique el Id del tipo de transaccion!")
     @ManyToOne
     @JoinColumn(name = "tipoTransaccion_id")
     private TipoTransaccion tipoTransaccion;
 
+    @NotNull(message = "Ingrese el Id del despacho!")
     @ManyToOne
     @JoinColumn(name = "despacho_id")
     private Despacho despacho;
 
+    @NotNull(message = "Agregue el Id de la transacciion medio de pago!")
     @ManyToOne
     @JoinColumn(name = "transaccionMedioPago_id")
     private TransaccionMedioPago transaccionMedioPago;
 
+    @NotNull(message = "No olvide el Id del detalle de la transaccion!")
     @ManyToOne
     @JoinColumn(name = "detalleTransaccion_id")
     private DetalleTransaccion detalleTransaccion;
 
+    @NotNull(message = "Recuerde agregar el Id de la estaciond de pago!")
     @ManyToOne
     @JoinColumn(name = "estacionPago_id")
     private EstacionPago estacionPago;

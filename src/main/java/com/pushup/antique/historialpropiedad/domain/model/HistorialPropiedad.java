@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "historial")
@@ -18,10 +19,12 @@ public class HistorialPropiedad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Ingrese el Id de la persona!")
     @ManyToOne
     @JoinColumn(name = "persona_id")
     private Persona persona;
 
+    @NotNull(message = "Digite el Id de la antiguedad!")
     @ManyToOne
     @JoinColumn(name = "antiguedad_id")
     private Antiguedad antiguedad;

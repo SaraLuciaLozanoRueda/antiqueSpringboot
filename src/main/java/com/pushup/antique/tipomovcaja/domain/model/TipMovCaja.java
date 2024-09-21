@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tipo_mov_caja")
@@ -13,6 +14,7 @@ public class TipMovCaja {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Ingrese el nombre del tipo de moviemiento de caja!")
     private String nombre;
 
     public TipMovCaja() {

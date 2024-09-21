@@ -9,6 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "direccion_persona")
@@ -16,11 +18,13 @@ public class DIreccionPersona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
+    @NotNull(message = "Ingrese el Id del tipo de direccion!")
     @ManyToOne
     @JoinColumn(name = "tipoDIreccion_id")
     private TipoDIreccion tipoDIreccion;
 
+    @NotBlank(message = "Ingrese la direccion!")
     private String direccion;
 
     public DIreccionPersona() {

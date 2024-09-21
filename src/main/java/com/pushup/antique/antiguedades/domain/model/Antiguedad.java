@@ -13,6 +13,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "antiguedades")
@@ -21,24 +24,30 @@ public class Antiguedad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Nombre de antiguedad no puede estar vacio!")
     private String nombre;
 
+    @NotNull(message = "Id de Categoria es necesario")
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+    @NotNull(message = "Id de la ciudad es requerido!")
     @ManyToOne
     @JoinColumn(name = "ciudad_id")
     private Ciudad ciudad;
 
+    @NotNull(message = "No olvides el Id de la epoca")
     @ManyToOne
     @JoinColumn(name="epocaAntiguedad_id")
     private EpocaAntiguedad epocaAntiguedad;
 
+    @NotNull(message = "Recuerda llenar el Id de la galeria")
     @ManyToOne
     @JoinColumn(name = "galeria_id")
     private Galeria galeria;
 
+    @NotNull(message = "Ingresa el Id del ranking de la antiguedad")
     @ManyToOne
     @JoinColumn(name = "rankingAntiguedad_id")
     private RankingAntiguedad rankingAntiguedad;
